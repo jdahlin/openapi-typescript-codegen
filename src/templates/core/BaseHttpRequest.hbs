@@ -24,8 +24,8 @@ export abstract class BaseHttpRequest {
 	{{/equals}}
 
 	{{#equals @root.httpClient 'angular'}}
-	public abstract request<T>(options: ApiRequestOptions): Observable<T>;
+	public abstract request<T>(options: ApiRequestOptions, config?: Partial<OpenAPIConfig>): Observable<T>;
 	{{else}}
-	public abstract request<T>(options: ApiRequestOptions): CancelablePromise<T>;
+	public abstract request<T>(options: ApiRequestOptions, config?: Partial<OpenAPIConfig>): CancelablePromise<T>;
 	{{/equals}}
 }
